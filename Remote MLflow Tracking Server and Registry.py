@@ -66,7 +66,7 @@ diabetes = load_diabetes()
 trained_model = RandomForestRegressor(n_estimators=100, max_depth=6, max_features=3).fit(diabetes.data, diabetes.target)
 
 # Dummy artifact to log in experiment runs
-plt.savefig('plot.png');
+plt.savefig('/tmp/plot.png');
 
 # COMMAND ----------
 
@@ -123,7 +123,7 @@ mlflow.set_tracking_uri(remote_mlflow_uri)
 # Log a model in a new run inside the remote experiment.
 with mlflow.start_run(experiment_id=get_or_create_experiment('mlflow_experiments/remote_demo')) as remote_run:
   mlflow.sklearn.log_model(trained_model, 'random-forest-model')
-  mlflow.log_artifact('plot.png')
+  mlflow.log_artifact('/tmp/plot.png')
   
 print(remote_run.info)
 
