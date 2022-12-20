@@ -107,7 +107,7 @@ mlflow.set_tracking_uri('databricks')
 # Log a model in a new run inside the experiment.
 with mlflow.start_run(experiment_id=get_or_create_experiment('mlflow_experiments/local_demo')) as local_run:
   mlflow.sklearn.log_model(trained_model, 'random-forest-model')
-  mlflow.log_artifact('plot.png')
+  mlflow.log_artifact('/tmp/plot.png')
   
 print(local_run.info)
 
