@@ -83,16 +83,16 @@ registered_model_name = 'johnk-az-rf'
 
 # MAGIC %md # Experiments
 # MAGIC 
-# MAGIC **This section performs the following for both the local (this) workspace and the remote workspace.**
+# MAGIC **This section performs the following for both the *local* (this) workspace and the *remote* workspace.**
 # MAGIC 
 # MAGIC - Create a new experiment (or reuse an existing by ID)
-# MAGIC   - (Optional) Set the experiment artifact_location to a mounted dbfs directory.
+# MAGIC   - (Optional) Set the experiment artifact_uri.
 # MAGIC - Create a new run inside the experiment.
 # MAGIC   - Log model artifact
 # MAGIC   - Log file artifact
 # MAGIC - Inspect the results
 # MAGIC 
-# MAGIC **Side note on custom experiment `artifact_uri`s**
+# MAGIC **Note on custom experiment `artifact_uri`s**
 # MAGIC - It is possible to specify an experiment `artifact_uri` that points to a DBFS *mount point* in either workspace, but that comes with the same [limitations as for non-DBFS locations](https://learn.microsoft.com/en-us/azure/databricks/mlflow/tracking#--create-workspace-experiment) and cannot be registered in the Model Registry. If such `artifact_uri`s are used, one must first copy the logged model to a non-mount DBFS location before registering the model.
 
 # COMMAND ----------
@@ -131,7 +131,7 @@ print(remote_run.info)
 
 # MAGIC %md # Remote Model Registry
 # MAGIC 
-# MAGIC Registering models referencing the remote and local tracking servers.
+# MAGIC Registering models referencing the *remote* and *local* tracking servers.
 
 # COMMAND ----------
 
